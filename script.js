@@ -1,5 +1,3 @@
-console.log("s1");
-
 // FizzBuzz
 /*for (i=1; i<101; i++)
 {
@@ -25,29 +23,38 @@ for (i=0; (i < word1.length) && (i < word2.length); i++)
 alert("Likadana bokstäver: " + res);*/
 
 // Gissa nummer
-let min = 1;
-let max = 100;
-let guess = 50;
-alert("Tänk på ett tal mellan " + min + " och " + max);
+let startMin = 1;
+let startMax = 100;
+let curMin;
+let curMax;
+let guess;
 const div = document.querySelector("#guess");
 
-console.log("s2");
+alert("Tänk på ett tal mellan " + curMin + " och " + curMax);
+newGame();
+
+function newGame()
+{
+    curMin = startMin;
+    curMax = startMax;
+    newguess();
+}
 
 function newguess()
 {
-    guess = (max + min) / 2 | 0;
+    guess = (curMax + curMin) / 2 | 0;
     div.innerHTML = guess;
 }
 
 function low()
 {
-    min = guess + 1;
+    curMin = guess + 1;
     newguess();
 }
 
 function high()
 {
-    max = guess - 1;
+    curMax = guess - 1;
     newguess();
 }
 

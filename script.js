@@ -33,18 +33,22 @@ const div = document.querySelector("#guess");
 
 console.log("s2");
 
-function low()
+function newguess()
 {
-    min = guess;
     guess = (max + min) / 2 | 0;
     div.innerHTML = guess;
 }
 
+function low()
+{
+    min = guess + 1;
+    newguess();
+}
+
 function high()
 {
-    max = guess;
-    guess = (max + min) / 2 | 0;
-    div.innerHTML = guess;
+    max = guess - 1;
+    newguess();
 }
 
 function correct()
